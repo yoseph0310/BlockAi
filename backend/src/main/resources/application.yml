@@ -15,7 +15,7 @@ cloud:
     credentials:
       instance-profile: true
     s3:
-      bucket: blockai-bucket
+      bucket: blockai-bucket-coach
 
 
 logging:
