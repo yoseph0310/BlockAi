@@ -39,6 +39,7 @@ public class User implements UserDetails {
     @Embedded
     private DID did;
 
+    @Builder.Default
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Certification> certifications = new ArrayList<>();
 
