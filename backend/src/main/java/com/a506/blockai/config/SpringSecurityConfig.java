@@ -94,6 +94,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
         configuration.addAllowedOrigin("http://localhost:3000");
         configuration.addAllowedOrigin("https://coach85.p.ssafy.io");
+        configuration.addAllowedOrigin("https://coach85.p.ssafy.io:3000");
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
         configuration.setAllowCredentials(true);
