@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.13;
 pragma experimental ABIEncoderV2;
 
 import "./Ownable.sol";
@@ -22,13 +22,13 @@ contract Blockai is Ownable {
     }
 
     function addDID(string memory _faceFileUrl, string memory _voiceNo, address _userAddress) public onlyOwner {
-        DIDs[_userAddress] = DID(_faceFileUrl, _voiceNo, now + availableDays);
+        DIDs[_userAddress] = DID(_faceFileUrl, _voiceNo, block.timestamp + availableDays);
         size++;
     }
     
     function getDID(address _userAddress) public view returns(string memory, string memory, uint256) {
         DID memory userDid = DIDs[_userAddress];
-        require (now <= userDid.expiryDate);
+        require (block.timestamp <= userDid.expiryDate);
         return (userDid.faceFileUrl, userDid.voiceNo, userDid.expiryDate);
     }
 
