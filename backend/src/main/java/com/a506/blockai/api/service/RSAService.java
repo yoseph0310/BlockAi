@@ -28,9 +28,6 @@ public class RSAService {
             String stringPublicKey = Base64.getEncoder().encodeToString(publicKey.getEncoded());
             String stringPrivateKey = Base64.getEncoder().encodeToString(privateKey.getEncoded());
 
-            System.out.println(stringPublicKey);
-            System.out.println(stringPrivateKey);
-
             stringKeypair.put("publicKey", stringPublicKey);
             stringKeypair.put("privateKey", stringPrivateKey);
 
