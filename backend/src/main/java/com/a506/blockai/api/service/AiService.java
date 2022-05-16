@@ -267,8 +267,17 @@ public class AiService {
                 new TypeReference<Uint256>() {
                 }
         );
+        System.out.println("************* Into getBiometricsCertificateFromBlockchain *************");
+        System.out.println("AiService <getBiometricsCertificateFromBlockChain> outputParameters : " + outputParameters);
         Function function = new Function("getDID", Arrays.asList(new Address(didAddress)), outputParameters);
+        System.out.println("AiService <getBiometricsCertificateFromBlockChain> function : " + function);
+        System.out.println("AiService <getBiometricsCertificateFromBlockChain> function : " + function.getName());
         List<Type> ethereumCallResult = ethereumService.ethCall(function);
+        System.out.println("AiService <getBiometricsCertificateFromBlockChain> ethereumCallResult length : " + ethereumCallResult.size());
+        for(int i=0; i < ethereumCallResult.size(); i++) {
+            System.out.println(i+1 + " AiService <getBiometricsCertificateFromBlockChain> ethereumCallResult : " + ethereumCallResult.get(i));
+        }
+        System.out.println("************* return getBiometricsCertificateFromBlockchain *************");
         return ethereumCallResult;
     }
 
@@ -283,10 +292,16 @@ public class AiService {
         }
 
         String didAddress = did.getDidAddress();
+        System.out.println("AiService <getBiometricsFromBlockchain> didAddress : " + didAddress);
         List<Type> ethereumCallResult = getBiometricsCertificateFromBlockchain(didAddress);
+        System.out.println("AiService <getBiometricsFromBlockchain> ethereumCallResult length : "+ ethereumCallResult.size());
+
         String faceCertificateFromBlockchain = ethereumService.decode(String.valueOf(ethereumCallResult.get(0).getValue()));
         String voiceCertificateFromBlockchain = ethereumService.decode(String.valueOf(ethereumCallResult.get(1).getValue()));
 
+//        System.out.println("AiService <getBiometricsFromBlockchain> didAddress : "+ didAddress);
+        System.out.println("AiService <getBiometricsFromBlockchain> faceCertificateFromBlockchain : "+ faceCertificateFromBlockchain);
+        System.out.println("AiService <getBiometricsFromBlockchain> voiceCertificateFromBlockchain : "+ voiceCertificateFromBlockchain);
         BiometricsCertificateRequest res = new BiometricsCertificateRequest(faceCertificateFromBlockchain, voiceCertificateFromBlockchain, "");
         return res;
     }

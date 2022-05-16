@@ -12,6 +12,7 @@ import org.web3j.abi.datatypes.Address;
 import org.web3j.abi.datatypes.Function;
 import org.web3j.abi.datatypes.Type;
 import org.web3j.abi.datatypes.Utf8String;
+import org.web3j.protocol.core.methods.response.EthSendTransaction;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -33,8 +34,6 @@ public class DIDIssueService {
         userRepository.findById(userId)
                 .orElseThrow(UserNotFoundException::new);
 
-        System.out.println("face: " + didIssueRequest.getFacePath());
-        System.out.println("voice: " + didIssueRequest.getVoiceId());
         // 인증 데이터가 존재하는지 확인
         if (isBadBiometricsRequest(didIssueRequest)) throw new BadRequestException();
 
@@ -45,6 +44,8 @@ public class DIDIssueService {
         List<Type> inputParameters = new ArrayList<>();
         String encryptedFacePath =  ethereumService.encode(didIssueRequest.getFacePath());
         String encryptedVoiceId = ethereumService.encode(didIssueRequest.getVoiceId());
+        System.out.println("DIDIssueService <issueDID> encryptedFacePath(): " + encryptedFacePath);
+        System.out.println("DIDIssueService <issueDID> encryptedVoiceId(): " + encryptedVoiceId);
         inputParameters.add(new Utf8String(encryptedFacePath));
         inputParameters.add(new Utf8String(encryptedVoiceId));
         inputParameters.add(new Address(address));
@@ -54,7 +55,7 @@ public class DIDIssueService {
 
         // 2. 트랜잭션 전송
         String txHash = ethereumService.ethSendRawTransaction(function);
-
+//        EthSendTransaction txHash = ethereumService.ethSendRawTransaction(function);
         // DB에 업데이트
         User user = userRepository.findById(userId)
                 .orElseThrow(UserNotFoundException::new);
