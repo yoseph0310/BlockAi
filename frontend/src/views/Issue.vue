@@ -223,7 +223,7 @@
             chunks.value.push(e.data)
           }
           mediaRecorder.value.onstop = () => {
-            audioBlob.value = new Blob(chunks.value, { type: 'audio/wav' })
+            audioBlob.value = new Blob(chunks.value, { type: 'audio/wav; codecs=MS_PCM' })
             chunks.value = []
             audioSource.value = window.URL.createObjectURL(audioBlob.value)
           }
