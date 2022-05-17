@@ -21,7 +21,6 @@ public class RSAService {
             SecureRandom secureRandom = new SecureRandom();
             KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
             keyPairGenerator.initialize(KEY_SIZE, secureRandom);
-//            KeyPair keyPair = keyPairGenerator.genKeyPair();
             KeyPair keyPair = keyPairGenerator.generateKeyPair();
 
             PublicKey publicKey = keyPair.getPublic();
@@ -55,19 +54,9 @@ public class RSAService {
             Cipher cipher = Cipher.getInstance("RSA");
             cipher.init(Cipher.ENCRYPT_MODE, publicKey);
 
-            // plainData 출력
-            System.out.println("RSAService <encode> plainData : " + plainData);
-            // plainData getBytes 출력
-            System.out.println("RSAService <encode> plainData.getBytes.length : " + plainData.getBytes(StandardCharsets.UTF_8).length);
-            // byteEncryptedData 출력
             //평문을 암호화하는 과정
             byte[] byteEncryptedData = cipher.doFinal(plainData.getBytes(StandardCharsets.UTF_8));
-            for (int i = 0; i < byteEncryptedData.length; i++){
-                System.out.println("RSAService <encode> byteEncryptedData : " + byteEncryptedData[i]);
-            }
-            // encryptedData 출력
             encryptedData = Base64.getEncoder().encodeToString(byteEncryptedData);
-            System.out.println("RSAService <encdoe> encryptedData : " + encryptedData);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,8 +68,6 @@ public class RSAService {
      */
     public String decode(String encryptedData, String stringPrivateKey) {
         String decryptedData = null;
-        System.out.println("RSAService <decode> encryptedData : " + encryptedData);
-        System.out.println("RSAService <decode> stringPrivateKey : " + stringPrivateKey);
         try {
             //평문으로 전달받은 개인키를 개인키객체로 만드는 과정
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -94,11 +81,6 @@ public class RSAService {
 
             //암호문을 평문화하는 과정
             byte[] byteEncryptedData = Base64.getDecoder().decode(encryptedData.getBytes(StandardCharsets.UTF_8));
-//            for(int i = 0; i < byteEncryptedData.length; i++ ){
-//                System.out.println("RSAService <decode> byteEncryptedData : " + byteEncryptedData[i]);
-//            }
-
-            System.out.println("RSAService <decode> byteEncryptedData length : " + byteEncryptedData.length);
             byte[] byteDecryptedData = cipher.doFinal(byteEncryptedData);
             decryptedData = new String(byteDecryptedData);
         } catch (Exception e) {
