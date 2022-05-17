@@ -49,21 +49,11 @@ public class EthereumService {
         //1. transaction 제작
         Transaction transaction = Transaction.createEthCallTransaction(from, contract,
                 FunctionEncoder.encode(function));
-        System.out.println("************* Into ethCall *************");
-        System.out.println("EthereumService <ethCall> transaction : " + transaction);
         //2. ethereum 호출후 결과 가져오기
         EthCall ethCall = web3j.ethCall(transaction, DefaultBlockParameterName.LATEST).send();
-        System.out.println("EthereumService <ethCall> ethCall : " + ethCall);
         //3. 결과값 decode
         List<Type> decode = FunctionReturnDecoder.decode(ethCall.getResult(),
                 function.getOutputParameters());
-
-        System.out.println("EthereumService <ethCall> ethCall.getResult() : " + ethCall.getResult());
-        for (int i = 0; i < decode.size(); i++){
-            System.out.println("EthereumService <ethCall> decode result : " + decode.get(i));
-        }
-        System.out.println("EthereumService <ethCall> decode size : " + decode.size());
-        System.out.println("************* return ethCall *************");
         return decode;
     }
 
@@ -72,7 +62,6 @@ public class EthereumService {
         EthGetTransactionCount ethGetTransactionCount = web3j.ethGetTransactionCount(
                 from, DefaultBlockParameterName.PENDING).send();
         BigInteger nonce = ethGetTransactionCount.getTransactionCount();
-        System.out.println("EthereumService <ethSendRawTransaction> nonce : "+nonce);
 
         BigInteger GAS_PRICE = BigInteger.valueOf(20000000000L);
         BigInteger GAS_LIMIT = BigInteger.valueOf(772197L);
@@ -80,17 +69,14 @@ public class EthereumService {
         // 트랜잭션 생성
         RawTransaction rawTransaction = RawTransaction.createTransaction(nonce, GAS_PRICE,
                 GAS_LIMIT, contract, FunctionEncoder.encode(function));
-        System.out.println("EthereumService <ethSendRawTransaction> rawTransaction : "+rawTransaction);
 
         // 트랜잭션 서명
         Credentials credentials = Credentials.create(privateKey);
         byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, credentials);
         String hexValue = Numeric.toHexString(signedMessage);
-        System.out.println("EthereumService <ethSendRawTransaction> hexValue : " + hexValue);
 
         // 트랜잭션 전송
         EthSendTransaction ethSendTransaction = web3j.ethSendRawTransaction(hexValue).send();
-        System.out.println("EthereumService <ethSendRawTransaction> ethSendTransaction : " + ethSendTransaction);
 
         if(ethSendTransaction.hasError()) {
             System.out.println("-------Transaction Send Error !!!-------");
@@ -98,7 +84,6 @@ public class EthereumService {
             System.out.println("-------Transaction Send Error !!!-------");
         }
         String hash = ethSendTransaction.getTransactionHash();
-        System.out.println("EthereumService <ethSendRawTransaction> hash : " + hash);
         return hash;
     }
 
@@ -119,22 +104,10 @@ public class EthereumService {
     }
 
     public String encode(String data) {
-
-//        HashMap<String, String> stringKeypair = rsaService.createKeypairAsString();
-//
-//        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-//        System.out.println("EthereumService <encode> stringKeypair : "+ stringKeypair.values());
-//        System.out.println("EthereumService <encode> rsaPrivateKey : " + rsaPrivateKey);
-//        System.out.println("EthereumService <encode> rsaPublicKey : " + rsaPublicKey);
-
-        // 여긴 원래 rsaPublicKey
         return rsaService.encode(data, rsaPublicKey);
-//        return rsaService.encode(data, rsaPrivateKey);
     }
 
     public String decode(String data) {
-        // 여긴 원래 rsaPrivateKey
-//        return rsaService.decode(data, rsaPublicKey);
         return rsaService.decode(data, rsaPrivateKey);
     }
 
