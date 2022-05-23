@@ -25,7 +25,7 @@
 
 ## 설치
 
-OS 별 설치 진행 확인 후 작성 예정.
+- [Wiki - 개발 환경 가이드](https://lab.ssafy.com/ssafy_opensource/5th_blockai/-/wikis/%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C), [Wiki - 서버 배포 가이드](https://lab.ssafy.com/ssafy_opensource/5th_blockai/-/wikis/%EC%84%9C%EB%B2%84-%EB%B0%B0%ED%8F%AC-%EA%B0%80%EC%9D%B4%EB%93%9C)탭 확인.
 
 ## 사용 예시
 
@@ -104,7 +104,9 @@ OS 별 설치 진행 확인 후 작성 예정.
 
 ## 개발 설정
 
-OS 별 개발 설정 진행 확인 후 작성 예정.
+- [Wiki - 개발 환경 가이드](https://lab.ssafy.com/ssafy_opensource/5th_blockai/-/wikis/%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C), [Wiki - 서버 배포 가이드](https://lab.ssafy.com/ssafy_opensource/5th_blockai/-/wikis/%EC%84%9C%EB%B2%84-%EB%B0%B0%ED%8F%AC-%EA%B0%80%EC%9D%B4%EB%93%9C)탭 확인.
+- MacOS는 VirtualBox arm Mac 미지원 상태(2022.05.23 기준)로 Intel Mac 에서만 개발 환경 구축 가능
+- Windows는 Wiki 대로 진행.
 
 ## 릴리즈 히스토리
 
