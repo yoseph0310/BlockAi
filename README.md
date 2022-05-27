@@ -20,7 +20,7 @@
 
 ## 아키텍처
 
-![142981989-b7cb6a58-a91c-46b9-a276-4c9d52996622](/uploads/7aba029cdbcc69d4080b304b226a829a/142981989-b7cb6a58-a91c-46b9-a276-4c9d52996622.png)
+![142981989-b7cb6a58-a91c-46b9-a276-4c9d52996622](https://lab.ssafy.com/ssafy_opensource/5th_blockai/uploads/7aba029cdbcc69d4080b304b226a829a/142981989-b7cb6a58-a91c-46b9-a276-4c9d52996622.png)
 
 
 ## 설치
