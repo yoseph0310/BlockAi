@@ -25,7 +25,7 @@
 
 ## 설치
 
-- [Wiki - 개발 환경 가이드](https://lab.ssafy.com/ssafy_opensource/5th_blockai/-/wikis/%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C), [Wiki - 서버 배포 가이드](https://lab.ssafy.com/ssafy_opensource/5th_blockai/-/wikis/%EC%84%9C%EB%B2%84-%EB%B0%B0%ED%8F%AC-%EA%B0%80%EC%9D%B4%EB%93%9C)탭 확인.
+- [Wiki - 개발 환경 가이드](https://github.com/yoseph0310/BlockAi/wiki/%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C), [Wiki - 서버 배포 가이드](https://github.com/yoseph0310/BlockAi/wiki/%EC%84%9C%EB%B2%84-%EB%B0%B0%ED%8F%AC-%EA%B0%80%EC%9D%B4%EB%93%9C)탭 확인.
 
 ## 사용 예시
 
@@ -104,40 +104,13 @@
 
 ## 개발 설정
 
-- [Wiki - 개발 환경 가이드](https://lab.ssafy.com/ssafy_opensource/5th_blockai/-/wikis/%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C), [Wiki - 서버 배포 가이드](https://lab.ssafy.com/ssafy_opensource/5th_blockai/-/wikis/%EC%84%9C%EB%B2%84-%EB%B0%B0%ED%8F%AC-%EA%B0%80%EC%9D%B4%EB%93%9C)탭 확인.
+- [Wiki - 개발 환경 가이드](https://github.com/yoseph0310/BlockAi/wiki/%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C), [Wiki - 서버 배포 가이드](https://github.com/yoseph0310/BlockAi/wiki/%EC%84%9C%EB%B2%84-%EB%B0%B0%ED%8F%AC-%EA%B0%80%EC%9D%B4%EB%93%9C)탭 확인.
 - MacOS는 VirtualBox arm Mac 미지원 상태(2022.05.23 기준)로 Intel Mac 에서만 개발 환경 구축 가능
 - Windows는 Wiki 대로 진행.
 
-## 릴리즈 히스토리
-
-히스토리 작성이 필요한 경우, 영어로 작성하되, 괄호 안에 한글 설명을 첨부하셔도 됩니다.
-
-* 0.0.1
-    * Work in progress
-
-## 추가정보
-
-- 서요셉 – ssafy_coach_85@ssafy.com
-- 김경원 – ssafy_coach_70@ssafy.com
-- 최나현 – ssafy_coach_59@ssafy.com
-
-
-## 기여
-
-1. 해당 프로젝트를 Fork 하세요 (<https://lab.ssafy.com/ssafy_opensource/5/-/forks/new>)
-2. feature 브랜치를 생성하세요 (`git checkout -b feature/fooBar`)
-3. 변경사항을 commit 하세요 (`git commit -am 'Add some fooBar'`)
-4. 브랜치에 Push 하세요 (`git push origin feature/fooBar`)
-5. 새로운 Merge Request를 요청하세요
 
 ## 라이선스
 
 Distributed under the SGPL license. See [License](LICENSE) for more information.
 
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://lab.ssafy.com/ssafy_coach_5th/open-source-template/wikis/home
+
