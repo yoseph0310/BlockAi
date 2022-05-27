@@ -55,7 +55,7 @@ public class DIDIssueService {
 
         // 2. 트랜잭션 전송
         String txHash = ethereumService.ethSendRawTransaction(function);
-//        EthSendTransaction txHash = ethereumService.ethSendRawTransaction(function);
+
         // DB에 업데이트
         User user = userRepository.findById(userId)
                 .orElseThrow(UserNotFoundException::new);

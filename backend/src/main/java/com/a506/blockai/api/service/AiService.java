@@ -103,11 +103,6 @@ public class AiService {
 
         //1. base64로 변환된 음섣파일 decode해서 다시 wav파일로 변환
         byte[] decoded1 = Base64.decode(encodedUserVoice);
-//        InputStream record_in = new ByteArrayInputStream(decoded);
-//        DataOutputStream dos = new DataOutputStream(new FileOutputStream(
-//                rootPath+movePath+"record.wav"  ));
-//        dos.write(decoded);
-//        File recordFile = new File(rootPath+movePath+"record.wav");
 
         File recordFile = null;
         InputStream recordIn = new ByteArrayInputStream(decoded1);
@@ -158,8 +153,6 @@ public class AiService {
         String decodedString = new String(decodedBytes);
 
         // 들어온 이미지를 file 형태로 변경
-//        File inputImage = new File(FileSystemView.getFileSystemView().getHomeDirectory()
-//                + "img.jpg");
 
         File inputImage = new File(rootPath+movePath + "img.jpg");
 
@@ -230,13 +223,8 @@ public class AiService {
         for (CompareFacesMatch match : faceDetails) {
             ComparedFace face = match.getFace();
             BoundingBox position = face.getBoundingBox();
-//            System.out.println("Face at " + position.getLeft().toString()
-//                    + " " + position.getTop()
-//                    + " matches with " + match.getSimilarity().toString()
-//                    + "% confidence.");
             result = match.getSimilarity();
         }
-        // List<ComparedFace> uncompared = compareFacesResult.getUnmatchedFaces();
 
         //파일 삭제
         inputImage.delete();
