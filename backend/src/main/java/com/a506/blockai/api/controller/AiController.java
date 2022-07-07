@@ -39,5 +39,4 @@ public class AiController {
     public ResponseEntity<VoiceBiometricResponse> searchVoice(@PathVariable int userId) throws Exception {
         return ResponseEntity.ok(aiService.searchVoice(userId));
     }
-
 }
